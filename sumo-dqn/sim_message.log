@@ -1,0 +1,6 @@
+***Starting server on port 53199 ***
+Loading net-file from 'test.net.xml' ... done (3ms).
+Loading done.
+Simulation version 1.18.0 started with time: 0.00.
+Simulation ended at time: 1.00
+Reason: TraCI requested termination.
