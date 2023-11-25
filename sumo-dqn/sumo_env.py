@@ -65,10 +65,13 @@ class sumo_env:
 				state.append(0)
 		return state
 
+		# action is just an index (random on intelligent) to select an item from choice_list
 	def step(self, action):
 		#return value is: state, reward, done_flag, 
 		#print("Action received: "+str(action))
 		choice_now = self.choice_list[action]
+
+		# if vehicle makes an invalid choice (chooses invalid edge)--> reward is -1000
 		if choice_now not in self.out_dict[self.start_edge].keys():
 			#input("*******Invalid choice**************")
 
@@ -78,10 +81,14 @@ class sumo_env:
 			info = self.edge_now
 			traci.close()
 			return state, reward, done_flag, info
+		
+		# selecting edge for vehicle to target
 		target_edge = self.out_dict[self.start_edge][choice_now]
 		traci.vehicle.changeTarget(self.target_vehicle, target_edge)
 		#print("Set target as "+target_edge)
 		#when to confirm the final_target?
+
+		# target doesn't reach destiantion so reward = -steps
 		if self.length_dict[target_edge]<=10 and target_edge!=self.final_target:
 			#input("*********short_destination************")
 			self.start_edge = target_edge
@@ -129,6 +136,7 @@ class sumo_env:
 					return True, step
 
 
+# instiantials out_dict, length_dict and index_dict
 	def getConnectionInfo(self, net_file_name):
 		net = sumolib.net.readNet(net_file_name)
 		out_dict = {}

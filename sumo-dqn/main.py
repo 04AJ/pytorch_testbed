@@ -121,7 +121,7 @@ def select_action(state):
         math.exp(-1. * steps_done / EPS_DECAY)
     steps_done += 1
     if sample <= eps_threshold:
-        return torch.tensor(random.randrange(n_actions), device=device, dtype=torch.long), random.randrange(n_actions)
+        return torch.tensor([random.randrange(n_actions)], device=device, dtype=torch.long).view(1, 1), torch.tensor([random.randrange(n_actions)], device=device, dtype=torch.long).view(1, 1).item()
     else:
         return policy_net(state).max(1)[1].view(1, 1), policy_net(state).max(1)[1].view(1, 1).item()  # returns action
 
@@ -225,20 +225,22 @@ for i_episode in range(num_episodes):
         total_reward += reward
         reward = torch.tensor([total_reward], device=device)
         done = terminated or info
-        if terminated:
-            next_state = None
-        else:
-            next_state = torch.tensor(observation, dtype=torch.float32, device=device).unsqueeze(0)
+        # if terminated:
+        #     next_state = None
+        # else:
+        #     next_state = torch.tensor(observation, dtype=torch.float32, device=device).unsqueeze(0)
 
+        next_state = torch.tensor(observation, dtype=torch.float32, device=device).unsqueeze(0)
+        
         # Store the transition in memory
-        memory.push(state, action, next_state, reward)
+        memory.push(state, taction, next_state, reward)
 
         # Move to the next state
         state = next_state
 
         # Perform one step of the optimization (on the policy network)
         # ERROR 
-        # optimize_model()
+        optimize_model()
 
         # Soft update of the target network's weights
         # θ′ ← τ θ + (1 −τ )θ′
