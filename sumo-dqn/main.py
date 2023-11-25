@@ -203,9 +203,9 @@ def optimize_model():
 
 # MAIN TRAINING LOOP
 if torch.cuda.is_available():
-    num_episodes = 600
+    num_episodes = 2000
 else:
-    num_episodes = 100
+    num_episodes = 1000
 # file = open("training.log", "w")
 for i_episode in range(num_episodes):
     # env.render()
@@ -231,7 +231,7 @@ for i_episode in range(num_episodes):
         #     next_state = torch.tensor(observation, dtype=torch.float32, device=device).unsqueeze(0)
 
         next_state = torch.tensor(observation, dtype=torch.float32, device=device).unsqueeze(0)
-        
+
         # Store the transition in memory
         memory.push(state, taction, next_state, reward)
 
