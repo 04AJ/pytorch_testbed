@@ -27,7 +27,7 @@ class sumo_env:
 				start_edge:		type: string, a string for the id of the edge based on which the vehicle makes a choice.
 				index_dict:		type: dict, maps edge id to an index
 		'''
-		net_file_name  = "test.net.xml"
+		net_file_name  = "test4.net.xml"
 		[self.length_dict, self.out_dict, self.index_dict] = self.getConnectionInfo(net_file_name)
 		#self.choice_list = ["l", "L", "R", "r", "s", "t"]
 		self.choice_list = ["s", "t", "R", "r", "L", "l"]

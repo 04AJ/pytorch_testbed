@@ -1,8 +1,8 @@
 <configuration>
 
 <input>
-    <net-file value="test.net.xml"/>
-    <route-files value="test.rou.xml"/>
+    <net-file value="test4.net.xml"/>
+    <route-files value="test4.rou.xml"/>
 </input>
 <time>
     <begin value="0"/>
