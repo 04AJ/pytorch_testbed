@@ -1,0 +1,8 @@
+***Starting server on port 59955 ***
+Loading net-file from 'test4.net.xml' ... done (7ms).
+Loading done.
+Simulation version 1.18.0 started with time: 0.00.
+Simulation ended at time: 45.00
+Reason: TraCI requested termination.
+DijkstraRouter answered 2 queries and explored 4.00 edges on average.
+DijkstraRouter spent 0.00s answering queries (0.00ms on average).
