@@ -230,6 +230,7 @@ for i_episode in range(num_episodes):
         # else:
         #     next_state = torch.tensor(observation, dtype=torch.float32, device=device).unsqueeze(0)
 
+        
         next_state = torch.tensor(observation, dtype=torch.float32, device=device).unsqueeze(0)
 
         # Store the transition in memory
@@ -239,7 +240,6 @@ for i_episode in range(num_episodes):
         state = next_state
 
         # Perform one step of the optimization (on the policy network)
-        # ERROR 
         optimize_model()
 
         # Soft update of the target network's weights

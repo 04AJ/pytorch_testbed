@@ -2,6 +2,8 @@ import os
 import sys
 import optparse
 import random
+import math
+
 
 if 'SUMO_HOME' in os.environ:
 	tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
@@ -98,6 +100,7 @@ class sumo_env:
 			info = "Too short target edge confronted."
 			return state, reward, done_flag, info
 		#input("*********simulate************")
+		time = traci.simulation.getTime()
 		arrived, steps = self.simulate_step()
 		done_flag = arrived
 		self.start_edge = self.edge_now
@@ -105,6 +108,9 @@ class sumo_env:
 		reward = -steps
 		if arrived is True:
 			reward = 10000
+			print("Arrived! Time: " + str(time))
+			reward += math.floor((1000*(0.8**time)))
+
 		info = ""
 		return state, reward, done_flag, info
 
