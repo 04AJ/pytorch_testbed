@@ -15,10 +15,10 @@
     <!--<flow id="evflow" type="ev" beg="0" end="0" number="1" from="e1" to="e8"/>-->
 
     <vehicle id="0" type="car" route="route_0" depart="0"/>
-    <vehicle id="1" type="car" route="route_0" depart="3"/>
-    <vehicle id="2" type="car" route="route_0" depart="6"/>
-    <vehicle id="3" type="car" route="route_0" depart="9"/>
-    <vehicle id="4" type="car" route="route_0" depart="12"/>
+    <vehicle id="1" type="car" route="route_0" depart="1"/>
+    <vehicle id="2" type="car" route="route_0" depart="2"/>
+    <vehicle id="3" type="car" route="route_0" depart="3"/>
+    <vehicle id="4" type="car" route="route_0" depart="4"/>
 
     <vehicle id="ev_0" type="ev" route="route_0" depart="16"/>
 

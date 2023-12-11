@@ -204,9 +204,9 @@ def optimize_model():
 
 # MAIN TRAINING LOOP
 if torch.cuda.is_available():
-    num_episodes = 2000
+    num_episodes = 5000
 else:
-    num_episodes = 1000
+    num_episodes = 2000
 # file = open("training.log", "w")
 for i_episode in range(num_episodes):
     # env.render()

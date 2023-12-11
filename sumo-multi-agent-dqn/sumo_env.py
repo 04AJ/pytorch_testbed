@@ -34,7 +34,7 @@ class sumo_env:
 		#self.choice_list = ["l", "L", "R", "r", "s", "t"]
 		self.choice_list = ["s", "t", "R", "r", "L", "l"]
 		self.edge_now = ""
-		self.target_vehicle = "4"
+		self.target_vehicle = "0"
 		self.final_target = "destination"#modified for the small-scale map already
 		self.last_edge = ""
 		self.start_edge = ""
