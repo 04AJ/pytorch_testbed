@@ -8,8 +8,8 @@ from collections import namedtuple, deque
 from itertools import count
 import pickle
 import sys
-import traci
 from sumo_env import sumo_env
+from sumo_env import traci
 
 
 import torch
